@@ -1,0 +1,24 @@
+<div class="body">
+    <mat-card class="container">
+      <mat-grid-list cols="4" rowHeight="4:1" *ngFor="let pokemon of pokemons">
+        <div *ngIf="pokemon">
+          <div *ngIf="pokemon.id==1" >
+            <mat-grid-tile class="back"><strong> Nº </strong></mat-grid-tile>
+            <mat-grid-tile class="back"><strong> Name </strong></mat-grid-tile>
+            <mat-grid-tile class="back"><strong> Sprite </strong></mat-grid-tile>
+            <mat-grid-tile class="back"><strong>Type</strong></mat-grid-tile>
+            
+          </div>
+          <div class="border" (click)="getSelected(pokemon)">
+            <mat-grid-tile > <span>{{pokemon.id}}</span> </mat-grid-tile>
+            <mat-grid-tile> <span>{{pokemon.name}}</span> </mat-grid-tile>
+            <mat-grid-tile> <img src="{{pokemon.image}}"> </mat-grid-tile>
+            <mat-grid-tile> <span>{{pokemon.type}}</span> <span *ngIf="pokemon.type2"> {{pokemon.type2}} </span></mat-grid-tile>
+          </div>
+          
+          
+        </div>
+        
+      </mat-grid-list>
+    </mat-card>
+</div>

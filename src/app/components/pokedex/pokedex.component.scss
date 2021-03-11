@@ -1,0 +1,69 @@
+
+.container{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 0 !important;
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+
+table{
+    width: 100%;
+}
+
+mat-grid-list{
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+}
+mat-grid-list:last-child{
+    border-bottom: 1px solid black;
+}
+mat-grid-list:nth-child(even){
+    background-color: rgba(151, 124, 51, 0.397);
+    color: black;
+
+}
+mat-grid-list:nth-child(odd){
+    background-color: rgba(158, 218, 253, 0.692);
+    color: black;
+}
+span::first-letter{
+    text-transform: uppercase;
+}
+.back{
+    background-color: rgba(0, 0, 0,1);
+    color: white;
+    border-top: 1px solid black;
+    padding-right: 1px;
+    margin: 0;
+}
+.border:hover{
+    cursor: pointer;
+}
+mat-grid-list:hover{
+    background-color: rgba(185, 212, 88, 0.753);
+}
+
+
+@media (min-width: 1300px) {
+    img{
+        height: 100px;
+    }
+}
+@media (max-width: 1300px) and (min-width: 900px){
+    img{
+        height: 75px;
+    }
+}
+@media (max-width: 900px)and (min-width: 600px)  {
+    img{
+        height: 50px;
+    }
+}
+@media (max-width: 600px){
+    img{
+        height: 25px;
+    }
+}
