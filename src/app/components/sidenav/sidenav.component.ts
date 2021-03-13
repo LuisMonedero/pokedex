@@ -1,5 +1,6 @@
 import {MediaMatcher} from '@angular/cdk/layout';
 import {ChangeDetectorRef, Component, OnDestroy} from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidenav',
@@ -18,7 +19,7 @@ export class SidenavComponent implements OnDestroy {
        
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private router:Router,private activatedRouter:ActivatedRoute) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -31,5 +32,14 @@ export class SidenavComponent implements OnDestroy {
   shouldRun = true;
 
   ngOnInit(): void {
+    this.router.routeReuseStrategy.shouldReuseRoute = ()=>{
+      return false;
+    };
+  }
+  getRegions(region:string){
+    this.router.navigateByUrl(`${region}/pokedex`);
+  }
+  goHome(){
+    this.router.navigateByUrl(`home`);
   }
 }

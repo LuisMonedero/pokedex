@@ -1,6 +1,6 @@
+import { AfterViewInit } from '@angular/core';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PokemonService } from 'src/app/services/pokemon.service';
 
 export interface Pokemons {
@@ -20,32 +20,58 @@ export interface Pokemons {
   templateUrl: './pokedex.component.html',
   styleUrls: ['./pokedex.component.scss']
 })
-export class PokedexComponent implements OnInit {
-  constructor(private pokemonService: PokemonService, private router:Router) { }
+export class PokedexComponent implements OnInit, AfterViewInit {
+  constructor(private pokemonService: PokemonService, private router:Router,private activatedRouter:ActivatedRoute) {
+    
+    this.activatedRouter.params.subscribe(params=>{
+      switch(params['region']){
+        case "Kanto":
+          this.region=1;
+          this.numPok=151;
+          this.initPokCont=1
+          break;
+        case "Johto":
+          this.region=2;
+          this.numPok=99;
+          this.initPokCont=152;
+          break;
+        case "Hoenn":
+          this.region=3;
+          this.numPok=134;
+          this.initPokCont=252;
+          break;
+      };
+      
+    })
+    this.data=[];
+    this.pokemons=[];
+    this.pokemonsRegion=[];
+  }
+  ngAfterViewInit(): void {
+    this.getPokemons()
+  }
+  initPokCont:any;
+  numPok:any;
+  region: any;
   data:any[]=[];
-  pokemons:any[151]=[151];
-  pokemons1:any[]=[];
+  pokemons:any[]=[];
   pokemonsRegion:any[]=[];
 
   ngOnInit(): void {
-    this.getPokemons();
+    
   }
   getSelected(pokemon:any){
     console.log(pokemon);
     this.router.navigateByUrl(`${pokemon.id}`);
-  }
-  printhem(){
-    console.log(this.pokemons);
   }
 
 
   getPokemons(){
     let regionData;
     let pokemonData;
-    for(let i = 0;i<151;i++){   //NUMERO POKS
-      this.pokemonService.getPokemonsRegion(1).subscribe(    //REGION
-          res=>{
-            
+    this.pokemonService.getPokemonsRegion(this.region).subscribe(    //REGION
+        res=>{
+          for(let i = 0;i<this.numPok;i++){   //NUMERO POKS
             regionData = res.pokemon_species[i].url;
             this.pokemonsRegion.push(regionData);
             this.pokemonService.getPokemons(this.pokemonsRegion[i]).subscribe(
@@ -77,8 +103,7 @@ export class PokedexComponent implements OnInit {
                         }
                       }
                       
-                      this.data[pokemonData.id-1]=pokemonData;
-                      //console.log(this.data)
+                      this.data[pokemonData.id-this.initPokCont]=pokemonData;
                     },
                     err=>{
                       console.log(err);
@@ -88,12 +113,13 @@ export class PokedexComponent implements OnInit {
                 console.log(err);
               }
             );
-          },err =>{
-            console.log(err);
           }
+        },err =>{
+          console.log(err);
+        }
       );
       
-    }
+    
     this.pokemons=this.data;
   }
 }

@@ -1,7 +1,7 @@
 <div class="nav-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="shouldRun">
     <mat-toolbar color="primary" class="toolbar">
         <button mat-icon-button (click)="snav.toggle()" class="button-icon"><mat-icon>menu</mat-icon></button>
-        <h1 class="app-name" routerLink="home">PokeHelper  <img style="width: 30px;" src="../../../assets/images/poke.gif"></h1>
+        <h1 class="app-name" (click)="goHome()">PokeHelper  <img style="width: 30px;" src="../../../assets/images/poke.gif"></h1>
     </mat-toolbar>
   
     <mat-sidenav-container class="sidenav-container"
@@ -9,9 +9,9 @@
       <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
                    [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
         <mat-nav-list style="text-align: center;">
-          <p><button class="regions" routerLink="/kanto/pokedex" routerLinkActive="active"><img class="region-icon" src="../../../assets/images/pokeball.png"> Kanto</button></p>
-          <p><button class="regions" routerLink="/sinnoh/pokedex"><img class="region-icon" src="../../../assets/images/pokeball.png"> Hoenn</button></p>
-          <p><button class="regions" routerLink="/sa/pokedex"><img class="region-icon" src="../../../assets/images/pokeball.png"> Sinnoh</button></p>
+          <p><button class="regions" (click)="getRegions('Kanto')"><img class="region-icon" src="../../../assets/images/pokeball.png"> Kanto</button></p>
+          <p><button class="regions" (click)="getRegions('Johto')"><img class="region-icon" src="../../../assets/images/pokeball.png"> Johto</button></p>
+          <p><button class="regions" (click)="getRegions('Hoenn')"><img class="region-icon" src="../../../assets/images/pokeball.png"> Hoenn</button></p>
         </mat-nav-list>
     </mat-sidenav>
   

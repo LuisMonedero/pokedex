@@ -4,7 +4,7 @@
       
       <mat-grid-list cols="4" rowHeight="4:1" *ngFor="let pokemon of pokemons">
         <div *ngIf="pokemon">
-          <div *ngIf="pokemon.id==1" >
+          <div *ngIf="pokemon.id==1 || pokemon.id == 252 || pokemon.id == 152" >
             <mat-grid-tile class="back"><strong> Nº </strong></mat-grid-tile>
             <mat-grid-tile class="back"><strong> Name </strong></mat-grid-tile>
             <mat-grid-tile class="back"><strong> Sprite </strong></mat-grid-tile>
@@ -28,6 +28,6 @@
           
         </div>
         
-      </mat-grid-list>-->
+      </mat-grid-list>
     </mat-card>
 </div>

@@ -7,14 +7,14 @@ import { PokedexComponent } from './components/pokedex/pokedex.component';
 
 const routes: Routes = [
   { path: 'home',  component: HomeComponent },
-  { path: 'kanto/pokedex',  component: PokedexComponent },
+  { path: ':region/pokedex',  component: PokedexComponent },
   { path: ':id',  component: PokeDetailComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
