@@ -24,7 +24,7 @@ import {MatChipsModule} from '@angular/material/chips';
 import {HttpClientModule} from '@angular/common/http';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { PokeDetailComponent } from './components/poke-detail/poke-detail.component';
 
 
 
@@ -36,7 +36,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     HeaderComponent,
     HomeComponent,
     SidenavComponent,
-    PokedexComponent
+    PokedexComponent,
+    PokeDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -54,8 +55,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatChipsModule,
     HttpClientModule,
     MatFormFieldModule,
-    MatGridListModule,
-    MatProgressSpinnerModule
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -8,52 +8,10 @@
                            [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
       <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
                    [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
-        <mat-nav-list>
-            <mat-accordion>
-                <mat-expansion-panel hideToggle>
-                  <mat-expansion-panel-header>
-                    <mat-panel-title>
-                      Kanto
-                    </mat-panel-title>
-                  </mat-expansion-panel-header>
-                  <mat-list-item routerLink="/kanto/pokedex" routerLinkActive="active">
-                    <button  class="button-icon"><img style="width: 20px;" src="../../../assets/images/blast.gif">  Pokedex</button>
-                  </mat-list-item>
-                  <mat-list-item>
-                    <button class="button-icon"><img style="width: 20px;" src="../../../assets/images/gengar.gif">  Gym Leaders</button>
-                  </mat-list-item>
-                  <mat-list-item>
-                    <button class="button-icon"><img style="width: 20px;" src="../../../assets/images/ditto.gif">  Team Builder</button>
-                  </mat-list-item>
-                </mat-expansion-panel>
-              </mat-accordion>
-              <mat-accordion>
-                <mat-expansion-panel hideToggle>
-                  <mat-expansion-panel-header>
-                    <mat-panel-title>
-                      <a>Johto</a>
-                    </mat-panel-title>
-                  </mat-expansion-panel-header>
-                </mat-expansion-panel>
-              </mat-accordion>
-              <mat-accordion>
-                <mat-expansion-panel hideToggle>
-                  <mat-expansion-panel-header>
-                    <mat-panel-title>
-                      Hoenn
-                    </mat-panel-title>
-                  </mat-expansion-panel-header>
-                </mat-expansion-panel>
-              </mat-accordion>
-              <mat-accordion>
-                <mat-expansion-panel hideToggle>
-                  <mat-expansion-panel-header>
-                    <mat-panel-title>
-                      Sinnoh
-                    </mat-panel-title>
-                  </mat-expansion-panel-header>
-                </mat-expansion-panel>
-              </mat-accordion>
+        <mat-nav-list style="text-align: center;">
+          <p><button class="regions" routerLink="/kanto/pokedex" routerLinkActive="active"><img class="region-icon" src="../../../assets/images/pokeball.png"> Kanto</button></p>
+          <p><button class="regions" routerLink="/sinnoh/pokedex"><img class="region-icon" src="../../../assets/images/pokeball.png"> Hoenn</button></p>
+          <p><button class="regions" routerLink="/sa/pokedex"><img class="region-icon" src="../../../assets/images/pokeball.png"> Sinnoh</button></p>
         </mat-nav-list>
     </mat-sidenav>
   

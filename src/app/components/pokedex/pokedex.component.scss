@@ -30,7 +30,7 @@ mat-grid-list:nth-child(odd){
     color: black;
 }
 span::first-letter{
-    text-transform: uppercase;
+    text-transform: uppercase ;
 }
 .back{
     background-color: rgba(0, 0, 0,1);
@@ -61,9 +61,91 @@ mat-grid-list:hover{
     img{
         height: 50px;
     }
+    mat-chip{
+        padding-top:0 !important;
+        padding-bottom:0 !important;
+        padding-left: 3px !important;
+        padding-right: 3px !important;
+        margin: 0 !important;
+        font-size: 8px !important;
+    }
 }
 @media (max-width: 600px){
     img{
         height: 25px;
     }
+    mat-chip{
+        padding-top:0 !important;
+        padding-bottom:0 !important;
+        padding-left: 3px !important;
+        padding-right: 3px !important;
+        margin: 0 !important;
+        font-size: 8px !important;
+    }
+    span,strong,mat-chip{
+        font-size: 8px !important;
+    }
+}
+mat-chip{
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    pointer-events: none;
+}
+
+.grass{
+    background-color: rgb(88, 172, 88);
+}
+.fire{
+    background-color: rgb(236, 96, 96);
+}
+.water{
+    background-color: rgb(58, 144, 194);
+}
+.ice{
+    background-color: rgb(151, 209, 243);
+}
+.poison{
+    background-color: rgb(134, 71, 139);
+}
+.flying{
+    background-color: rgb(76, 241, 164);
+}
+.bug{
+    background-color: rgb(133, 250, 87);
+}
+.electric{
+    background-color: rgb(255, 234, 49);
+}
+.rock{
+    background-color: rgb(129, 99, 65);
+}
+.ground{
+    background-color: rgb(247, 191, 107);
+}
+.steel{
+    background-color: rgb(141, 141, 141);
+}
+.psychic{
+    background-color: rgb(253, 98, 220);
+}
+.fairy{
+    background-color: rgb(255, 176, 251);
+}
+.fighting{
+    background-color: rgb(153, 136, 80);
+}
+.ghost{
+    background-color: rgb(76, 63, 114);
+}
+.dragon{
+    background-color: rgb(16, 109, 145);
+}
+
+span,strong,mat-chip{
+    font-family: merri;
+    font-size: 18px;
 }
