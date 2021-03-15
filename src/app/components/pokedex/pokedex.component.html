@@ -2,32 +2,17 @@
 <div class="body">
     <mat-card class="container">
       
-      <mat-grid-list cols="4" rowHeight="4:1" *ngFor="let pokemon of pokemons">
+      <mat-grid-list cols="2" rowHeight="10:1" *ngFor="let pokemon of pokemons">
         <div *ngIf="pokemon">
-          <div *ngIf="pokemon.id==1 || pokemon.id == 252 || pokemon.id == 152" >
+          <div *ngIf="pokemon == pokemons[0]" >
             <mat-grid-tile class="back"><strong> Nº </strong></mat-grid-tile>
             <mat-grid-tile class="back"><strong> Name </strong></mat-grid-tile>
-            <mat-grid-tile class="back"><strong> Sprite </strong></mat-grid-tile>
-            <mat-grid-tile class="back"><strong>Type</strong></mat-grid-tile>
-            
           </div>
           <div class="border" (click)="getSelected(pokemon)">
-            <mat-grid-tile > <span>{{pokemon.id}}</span> </mat-grid-tile>
+            <mat-grid-tile > <span>{{pokemon.number}}</span> </mat-grid-tile>
             <mat-grid-tile> <span>{{pokemon.name}}</span> </mat-grid-tile>
-            <mat-grid-tile> <img src="{{pokemon.image}}"> </mat-grid-tile>
-            <mat-grid-tile>
-                <mat-chip class="{{pokemon.type}} matChip">
-                    <span>{{pokemon.type}}</span>
-                </mat-chip>
-
-                <mat-chip *ngIf="pokemon.type2 matChip" class="{{pokemon.type2}}"> 
-                    <span>{{pokemon.type2}}</span>
-                </mat-chip>
-            </mat-grid-tile>
           </div>
-          
         </div>
-        
       </mat-grid-list>
     </mat-card>
 </div>

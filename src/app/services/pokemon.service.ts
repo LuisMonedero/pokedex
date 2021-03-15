@@ -9,13 +9,12 @@ export class PokemonService {
 
   constructor(private http: HttpClient) { 
   }
-  getPokemons(url:string){
-    return this.http.get<any>(`${url}`);
+  
+  getPokedexRegion(index:number){  //Pokedex component
+    return this.http.get<any>(`${this.baseUrl}/pokedex/${index}`);
   }
-  getPokemonsRegion(index:number){
-    return this.http.get<any>(`${this.baseUrl}/generation/${index}`);
-  }
-  getPokemon(index:number){
-    return this.http.get<any>(`${this.baseUrl}/pokemon/${index}`);
+  
+  getPokemonByName(name:string){
+    return this.http.get<any>(`${this.baseUrl}/pokemon/${name}`);
   }
 }

@@ -3,18 +3,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PokemonService } from 'src/app/services/pokemon.service';
 
-export interface Pokemons {
-  name: string;
-  id: number;
-  type: string;
-  type2: string;
-  stats: [];
-  weight: number;
-  height: number;
-}
-
-
-
 @Component({
   selector: 'app-pokedex',
   templateUrl: './pokedex.component.html',
@@ -26,100 +14,90 @@ export class PokedexComponent implements OnInit, AfterViewInit {
     this.activatedRouter.params.subscribe(params=>{
       switch(params['region']){
         case "Kanto":
-          this.region=1;
-          this.numPok=151;
-          this.initPokCont=1
+          this.region=2;
           break;
         case "Johto":
-          this.region=2;
-          this.numPok=99;
-          this.initPokCont=152;
+          this.region=3;
           break;
         case "Hoenn":
-          this.region=3;
-          this.numPok=134;
-          this.initPokCont=252;
+          this.region=4;
+          break;
+        case "Sinnoh":
+          this.region=5;
+          break;
+        case "Sinnoh2":
+          this.region=6;
+          break;
+        case "Johto2":
+          this.region=7;
+          break;
+        case "Unova":
+          this.region=8;
+          break;
+        case "Unova2":
+          this.region=9;
+          break;
+        case "Kalos":
+          this.region=12;
+          break;
+        case "Kalos2":
+          this.region=13;
+          break;
+        case "Kalos3":
+          this.region=14;
+          break;
+        case "Hoenn2":
+          this.region=15;
+          break;
+        case "Alola":
+          this.region=16;
+          break;
+        case "Alola2":
+          this.region=21;
+          break;
+        case "Kanto2":
+          this.region=26;
+          break;
+        case "Galar":
+          this.region=27;
           break;
       };
-      
     })
     this.data=[];
     this.pokemons=[];
-    this.pokemonsRegion=[];
   }
   ngAfterViewInit(): void {
     this.getPokemons()
   }
-  initPokCont:any;
-  numPok:any;
+  
   region: any;
   data:any[]=[];
   pokemons:any[]=[];
-  pokemonsRegion:any[]=[];
 
   ngOnInit(): void {
     
   }
   getSelected(pokemon:any){
-    console.log(pokemon);
-    this.router.navigateByUrl(`${pokemon.id}`);
+    this.router.navigateByUrl(`${pokemon.name}`);
   }
 
 
   getPokemons(){
-    let regionData;
     let pokemonData;
-    this.pokemonService.getPokemonsRegion(this.region).subscribe(    //REGION
+    this.pokemonService.getPokedexRegion(this.region).subscribe(    //REGION
         res=>{
-          for(let i = 0;i<this.numPok;i++){   //NUMERO POKS
-            regionData = res.pokemon_species[i].url;
-            this.pokemonsRegion.push(regionData);
-            this.pokemonService.getPokemons(this.pokemonsRegion[i]).subscribe(
-              res=>{
-                var cont = res.id;
-                this.pokemonService.getPokemon(cont).subscribe(
-                    res=>{
-                      if(res.types.length>1){
-                        pokemonData={
-                          id: res.id,
-                          name: res.name,
-                          image: res.sprites.front_default,
-                          type: res.types[0].type.name,
-                          type2: res.types[1].type.name,
-                          stats: res.stats,
-                          weight: res.weight,
-                          height: res.height
-                        }
-                      }else{
-                        pokemonData={
-                          id: res.id,
-                          name: res.name,
-                          image: res.sprites.front_default,
-                          type: res.types[0].type.name,
-                          type2: null ,
-                          stats: res.stats,
-                          weight: res.weight,
-                          height: res.height
-                        }
-                      }
-                      
-                      this.data[pokemonData.id-this.initPokCont]=pokemonData;
-                    },
-                    err=>{
-                      console.log(err);
-                    }
-                )
-              },err=>{
-                console.log(err);
-              }
-            );
+          for(let i = 0;i<res.pokemon_entries.length;i++){   //NUMERO POKS
+            pokemonData={
+              name: res.pokemon_entries[i].pokemon_species.name,
+              number: res.pokemon_entries[i].entry_number
+            }
+            this.data[i]=pokemonData;
           }
+          this.pokemons=this.data;
         },err =>{
           console.log(err);
         }
       );
-      
     
-    this.pokemons=this.data;
   }
 }

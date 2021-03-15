@@ -11,11 +11,6 @@ export class SidenavComponent implements OnDestroy {
 
   mobileQuery: MediaQueryList;
 
-  fillerNav = [
-    {name:"Pokedex"},
-    {name:"Pokedex2"},
-    {name:"Pokedex3"}
-  ];
        
   private _mobileQueryListener: () => void;
 
