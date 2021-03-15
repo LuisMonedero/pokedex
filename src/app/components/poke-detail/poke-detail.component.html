@@ -1,1 +1,25 @@
-<p>poke-detail works!</p>
+
+<div class="body">
+    <mat-card class="container">
+        <mat-card *ngIf="pokemon">
+            <mat-card-header>
+                <img mat-card-image src="{{pokemon.sprite}}" alt="{{pokemon.name}}">
+            </mat-card-header>
+            <mat-card-content>
+                <mat-card-title class="upper">{{pokemon.name}}</mat-card-title>
+                <mat-grid-list cols="2" rowHeight="5:1">
+                    <mat-grid-tile>Nº Entry</mat-grid-tile>
+                    <mat-grid-tile>{{pokemon.id}}</mat-grid-tile>
+                    <mat-grid-tile>Type</mat-grid-tile>
+                    <mat-grid-tile><mat-chip class="{{pokemon.type}}">{{pokemon.type}}</mat-chip><mat-chip class="{{pokemon.type2}}" *ngIf="pokemon.type2">{{pokemon.type2}}</mat-chip></mat-grid-tile>
+                    <div class="back" *ngFor="let state of pokemon.stats">
+                        <mat-grid-tile><span>{{state.stat.name}}</span></mat-grid-tile>
+                        <mat-grid-tile>{{state.base_stat}}</mat-grid-tile>
+                    </div>
+                        
+                    
+                </mat-grid-list>
+            </mat-card-content>
+          </mat-card>
+    </mat-card>
+</div>

@@ -1,3 +1,14 @@
+
+.container{
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    padding: 0 !important;
+    margin-top: 20px;
+    margin-bottom: 100px;
+    text-align: center;
+    
+}
 mat-chip{
     padding: 5px;
     padding-left: 15px;
@@ -6,6 +17,26 @@ mat-chip{
     border: 1px solid black;
     border-radius: 10px;
     pointer-events: none;
+}
+mat-grid-list{
+    width: 80%;
+    margin-left:10%;
+    margin-right:10%;
+    padding-bottom: 65% !important;
+    background-color: white;
+}
+.back{
+    background-color: red;
+}
+span::first-letter{
+    text-transform: uppercase;
+}
+
+.list{
+    border: 1px solid black;
+}
+.upper::first-letter{
+    text-transform: uppercase;
 }
 
 .grass{
@@ -55,4 +86,24 @@ mat-chip{
 }
 .dragon{
     background-color: rgb(16, 109, 145);
+}
+img{
+    width: 50%;
+    padding-left: 25%;
+    padding-right: 25%;
+}
+@media (max-width: 600px)and (min-width: 300px)  {
+   *{
+       font-size: 7px;
+   }
+   
+}
+@media (max-width: 900px)and (min-width: 300px)  {
+    mat-chip{
+     padding: 0px;
+     margin-right: 0px;
+     border: 1px solid black;
+     border-radius: 10px;
+     pointer-events: none;
+ }
 }
