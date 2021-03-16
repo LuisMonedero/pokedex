@@ -9,23 +9,80 @@
       <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
                    [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
         <mat-nav-list style="text-align: center;">
-          <p><button class="regions" (click)="getRegions('Kanto')"><img class="region-icon" src="../../../assets/images/pokeball.png"> Kanto Red/Blue/Yellow <img class="region-icon" src="../../../assets/images/pokeball.png"></button></p>
-          <p><button class="regions" (click)="getRegions('Johto')"><img class="region-icon" src="../../../assets/images/pokeball.png"> Johto Gold/Silver/Crystal <img class="region-icon" src="../../../assets/images/pokeball.png"></button></p>
-          <p><button class="regions" (click)="getRegions('Hoenn')"><img class="region-icon" src="../../../assets/images/pokeball.png"> Hoenn Ruby/Sapphire/Emerald <img class="region-icon" src="../../../assets/images/pokeball.png"></button></p>
-          <p><button class="regions" (click)="getRegions('Sinnoh')"><img class="region-icon" src="../../../assets/images/pokeball.png"> Sinnoh Diamond/Pearl <img class="region-icon" src="../../../assets/images/pokeball.png"></button></p>
-          <p><button class="regions" (click)="getRegions('Sinnoh2')"><img class="region-icon" src="../../../assets/images/pokeball.png"> Sinnoh Platinum <img class="region-icon" src="../../../assets/images/pokeball.png"></button></p>
-          <p><button class="regions" (click)="getRegions('Johto2')"><img class="region-icon" src="../../../assets/images/pokeball.png"> Johto HeartGold/SoulSilver <img class="region-icon" src="../../../assets/images/pokeball.png"></button></p>
-          <p><button class="regions" (click)="getRegions('Unova')"><img class="region-icon" src="../../../assets/images/pokeball.png"> Unova Black/White <img class="region-icon" src="../../../assets/images/pokeball.png"></button></p>
-          <p><button class="regions" (click)="getRegions('Unova2')"><img class="region-icon" src="../../../assets/images/pokeball.png"> Unova Black/White 2 <img class="region-icon" src="../../../assets/images/pokeball.png"></button></p>
-          <p><button class="regions" (click)="getRegions('Kalos')"><img class="region-icon" src="../../../assets/images/pokeball.png"> Kalos x/y Central <img class="region-icon" src="../../../assets/images/pokeball.png"></button></p> 
-          <p><button class="regions" (click)="getRegions('Kalos2')"><img class="region-icon" src="../../../assets/images/pokeball.png"> Kalos x/y Coast <img class="region-icon" src="../../../assets/images/pokeball.png"></button></p>
-          <p><button class="regions" (click)="getRegions('Kalos3')"><img class="region-icon" src="../../../assets/images/pokeball.png"> Kalos x/y Mountain <img class="region-icon" src="../../../assets/images/pokeball.png"></button></p>
-          <p><button class="regions" (click)="getRegions('Hoenn2')"><img class="region-icon" src="../../../assets/images/pokeball.png"> Hoenn Omega Ruby/Alpha Sapphire <img class="region-icon" src="../../../assets/images/pokeball.png"></button></p>
-          <p><button class="regions" (click)="getRegions('Alola')"><img class="region-icon" src="../../../assets/images/pokeball.png"> Alola Sun/Moon <img class="region-icon" src="../../../assets/images/pokeball.png"></button></p>
-          <p><button class="regions" (click)="getRegions('Alola2')"><img class="region-icon" src="../../../assets/images/pokeball.png"> Alola Ultra Sun/Ultra Moon <img class="region-icon" src="../../../assets/images/pokeball.png"></button></p>
-          <p><button class="regions" (click)="getRegions('Kanto2')"><img class="region-icon" src="../../../assets/images/pokeball.png"> Kanto Let's Go Pikachu/Eevee <img class="region-icon" src="../../../assets/images/pokeball.png"></button></p>
-          <p><button class="regions" (click)="getRegions('Galar')"><img class="region-icon" src="../../../assets/images/pokeball.png"> Galar Sword/Shield <img class="region-icon" src="../../../assets/images/pokeball.png"></button></p>
-          
+          <mat-accordion>
+            <mat-expansion-panel hideToggle>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Kanto
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p><button class="regions" (click)="getRegions('Kanto')"> Red/Blue/Yellow </button></p>
+              <p><button class="regions" (click)="getRegions('Kanto2')"> Let's Go Pikachu/Eevee </button></p>
+            </mat-expansion-panel>
+            <mat-expansion-panel hideToggle>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Johto
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p><button class="regions" (click)="getRegions('Johto')"> Gold/Silver/Crystal </button></p>
+              <p><button class="regions" (click)="getRegions('Johto2')"> HeartGold/SoulSilver </button></p>
+            </mat-expansion-panel> 
+            <mat-expansion-panel hideToggle>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Hoenn
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p><button class="regions" (click)="getRegions('Hoenn')"> Ruby/Sapphire/Emerald </button></p>
+              <p><button class="regions" (click)="getRegions('Hoenn2')"> Omega Ruby/Alpha Sapphire </button></p>
+            </mat-expansion-panel> 
+            <mat-expansion-panel hideToggle>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Sinnoh
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p><button class="regions" (click)="getRegions('Sinnoh')"> Diamond/Pearl </button></p>
+              <p><button class="regions" (click)="getRegions('Sinnoh2')"> Platinum </button></p>
+            </mat-expansion-panel> 
+            <mat-expansion-panel hideToggle>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Unova
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p><button class="regions" (click)="getRegions('Unova')"> Black/White </button></p>
+              <p><button class="regions" (click)="getRegions('Unova2')"> Black/White 2 </button></p>
+            </mat-expansion-panel> 
+            <mat-expansion-panel hideToggle>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Kalos
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p><button class="regions" (click)="getRegions('Kalos')"> x/y Central </button></p> 
+              <p><button class="regions" (click)="getRegions('Kalos2')"> x/y Coast </button></p>
+              <p><button class="regions" (click)="getRegions('Kalos3')"> x/y Mountain </button></p>
+            </mat-expansion-panel>
+            <mat-expansion-panel hideToggle>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Alola
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p><button class="regions" (click)="getRegions('Alola')"> Sun/Moon </button></p>
+              <p><button class="regions" (click)="getRegions('Alola2')"> Ultra Sun/Ultra Moon </button></p>
+            </mat-expansion-panel>
+            <mat-expansion-panel hideToggle>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Galar
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p><button class="regions" (click)="getRegions('Galar')"> Sword/Shield </button></p>
+            </mat-expansion-panel>   
+          </mat-accordion>
         </mat-nav-list>
     </mat-sidenav>
   
