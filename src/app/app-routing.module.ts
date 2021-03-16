@@ -8,7 +8,7 @@ import { PokedexComponent } from './components/pokedex/pokedex.component';
 const routes: Routes = [
   { path: 'home',  component: HomeComponent },
   { path: ':region/pokedex',  component: PokedexComponent },
-  { path: ':name',  component: PokeDetailComponent },
+  { path: ':region/pokedex/:name',  component: PokeDetailComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 
 ];

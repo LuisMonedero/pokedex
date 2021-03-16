@@ -12,7 +12,8 @@ export class PokedexComponent implements OnInit, AfterViewInit {
   constructor(private pokemonService: PokemonService, private router:Router,private activatedRouter:ActivatedRoute) {
     
     this.activatedRouter.params.subscribe(params=>{
-      switch(params['region']){
+      this.nameRegion=params['region'];
+      switch(this.nameRegion){
         case "Kanto":
           this.region=2;
           break;
@@ -69,7 +70,7 @@ export class PokedexComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this.getPokemons()
   }
-  
+  nameRegion:any;
   region: any;
   data:any[]=[];
   pokemons:any[]=[];
@@ -78,7 +79,7 @@ export class PokedexComponent implements OnInit, AfterViewInit {
     
   }
   getSelected(pokemon:any){
-    this.router.navigateByUrl(`${pokemon.name}`);
+    this.router.navigateByUrl(`${this.nameRegion}/pokedex/${pokemon.name}`);
   }
 
 

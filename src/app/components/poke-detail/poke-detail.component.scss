@@ -7,7 +7,23 @@
     margin-top: 20px;
     margin-bottom: 100px;
     text-align: center;
+    border-radius: 50px;
+}
+.poke{
+    border-radius: 50px;
+    background: url(../../../assets/images/backgound.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border: 2px solid black;
     
+}
+.content{
+    border-radius: 25px;
+    background-color: rgba(255,255,255,0.3);
+    margin-left: 20%;
+    margin-right: 20%;
+    padding-top: 2%;
+    padding-bottom: 5%;
 }
 mat-chip{
     padding: 5px;
@@ -23,7 +39,6 @@ mat-grid-list{
     margin-left:10%;
     margin-right:10%;
     padding-bottom: 65% !important;
-    background-color: white;
 }
 .back{
     background-color: red;
@@ -92,9 +107,15 @@ img{
     padding-left: 25%;
     padding-right: 25%;
 }
+@media (max-width: 950px)and (min-width: 600px)  {
+    *{
+        font-size: 8px;
+    }
+    
+ }
 @media (max-width: 600px)and (min-width: 300px)  {
    *{
-       font-size: 7px;
+       font-size: 3px;
    }
    
 }
@@ -106,4 +127,7 @@ img{
      border-radius: 10px;
      pointer-events: none;
  }
+}
+*{
+    font-family: quicksand;
 }
